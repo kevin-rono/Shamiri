@@ -1,0 +1,290 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Eligibility
+{% endblock %}
+
+{% block main %}
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+    <h4 class="mb-3"><b>Patient Health Questionnare (PHQ-9)</b></h4>
+
+    <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
+    <form action="/eligibility" method="post">
+        <large class="form-text text-muted">Kindly fill out this form for evaluation of your eligibility to participate in the intervention.</large>
+        <br>
+        <ol type="1">
+            <div id="elig">
+          <li><h6>What is your full name?</h6></li>
+              <input autocomplete="off" autofocus name="name" placeholder="Your name.." type="text">
+          <li><h6>What is your email address?</h6></li>
+              <input autocomplete="off" autofocus name="email" placeholder="Your email.." type="email">
+          <li><h6>What gender do you identify with?</h6></li>
+              <select name="gender">
+                <option disabled selected value="">Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+
+          <li><h6>How old are you?</h6></li>
+              <input autocomplete="off" autofocus name="age" placeholder="Your age.." type="number">
+          <li><h6>What school stage are you in?</h6></li>
+                <input name="year" type="radio" value="year">
+                    Elementary School
+                <br><br>
+                <input name="year" type="radio" value="Middle School">
+                    Middle School
+                <br><br>
+                <input name="year" type="radio" value="High School">
+                    High School
+                <br><br>
+                <input name="year" type="radio" value="College">
+                    College
+                <br><br>
+
+          <li><h6>Over the last 2 weeks, how often have you been bothered by any of the following problems?</h6></li>
+
+                        (a) Little interest or pleasure in doing things.<br>
+                            <input type="radio" name="zero" value="0"> 0: Not at all &nbsp
+                            <input type="radio" name="zero" value="1"> 1: Several days &nbsp
+                            <input type="radio" name="zero" value="2"> 2: More than half the days &nbsp
+                            <input type="radio" name="zero" value="3"> 3: Nearly every day &nbsp<br><br>
+
+                        (b) Feeling down, depressed, or hopeless.<br>
+                            <input type="radio" name="one" value="0"> 0: Not at all &nbsp
+                            <input type="radio" name="one" value="1"> 1: Several days &nbsp
+                            <input type="radio" name="one" value="2"> 2: More than half the days &nbsp
+                            <input type="radio" name="one" value="3"> 3: Nearly every day &nbsp<br><br>
+
+                        (c) Trouble falling or staying asleep, or sleeping too much.<br>
+                            <input type="radio" name="two" value="0"> 0: Not at all &nbsp
+                            <input type="radio" name="two" value="1"> 1: Several days &nbsp
+                            <input type="radio" name="two" value="2"> 2: More than half the days &nbsp
+                            <input type="radio" name="two" value="3"> 3: Nearly every day &nbsp<br><br>
+
+                        (d) Feeling tired or having little energy.<br>
+                            <input type="radio" name="three" value="0"> 0: Not at all &nbsp
+                            <input type="radio" name="three" value="1"> 1: Several days &nbsp
+                            <input type="radio" name="three" value="2"> 2: More than half the days &nbsp
+                            <input type="radio" name="three" value="3"> 3: Nearly every day &nbsp<br><br>
+
+                        (e) Poor appetite or overeating.<br>
+                            <input type="radio" name="four" value="0"> 0: Not at all &nbsp
+                            <input type="radio" name="four" value="1"> 1: Several days &nbsp
+                            <input type="radio" name="four" value="2"> 2: More than half the days &nbsp
+                            <input type="radio" name="four" value="3"> 3: Nearly every day &nbsp<br><br>
+
+                        (f) Feeling bad about yourself or that you are a failure or have let yourself or your family down.<br>
+                            <input type="radio" name="five" value="0"> 0: Not at all &nbsp
+                            <input type="radio" name="five" value="1"> 1: Several days &nbsp
+                            <input type="radio" name="five" value="2"> 2: More than half the days &nbsp
+                            <input type="radio" name="five" value="3"> 3: Nearly every day &nbsp<br><br>
+
+                        (g) Trouble concentrating on things, such as reading the newspaper or watching television.<br>
+                            <input type="radio" name="six" value="0"> 0: Not at all &nbsp
+                            <input type="radio" name="six" value="1"> 1: Several days &nbsp
+                            <input type="radio" name="six" value="2"> 2: More than half the days &nbsp
+                            <input type="radio" name="six" value="3"> 3: Nearly every day &nbsp<br><br>
+
+                        (h) Moving or speaking so slowly that other people could have noticed. Or the opposite being<br>
+                            so figety or restless that you have been moving around a lot more than usual.<br>
+                            <input type="radio" name="seven" value="0"> 0: Not at all &nbsp
+                            <input type="radio" name="seven" value="1"> 1: Several days &nbsp
+                            <input type="radio" name="seven" value="2"> 2: More than half the days &nbsp
+                            <input type="radio" name="seven" value="3"> 3: Nearly every day &nbsp<br><br>
+
+                        (i) Thoughts that you would be better off dead, or of hurting yourself.<br>
+                            <input type="radio" name="eight" value="0"> 0: Not at all &nbsp
+                            <input type="radio" name="eight" value="1"> 1: Several days &nbsp
+                            <input type="radio" name="eight" value="2"> 2: More than half the days &nbsp
+                            <input type="radio" name="eight" value="3"> 3: Nearly every day &nbsp<br><br>
+
+        <small class="form-text text-muted">*Please be as honest as possible in filling out the form, your information will be kept confidential.</small>
+        <br>
+        <!-- http://getbootstrap.com/docs/4.1/components/buttons/ -->
+        <div id="button">
+        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+        </div>
+    </div>
+    </form>
+
+    <script>
+
+        document.querySelector('form').onsubmit = function() {
+            let name = document.querySelector('input[name=name]');
+            {
+                if (!name.value)
+                {
+                alert('You must provide your name!');
+                return false;
+                }
+            }
+            let email = document.querySelector('input[name=email]');
+            {
+                if (!email.value)
+                {
+                alert('You must provide your email!');
+                return false;
+                }
+            }
+            let gender = document.querySelector('select');
+            {
+                if (!gender.value)
+                {
+                alert('You must provide your gender!');
+                return false;
+                }
+            }
+            let age = document.querySelector('input[name=age]');
+            {
+              if (!age.value)
+              {
+                alert('You must provide your age!');
+                return false;
+              }
+            }
+            let checked = false;
+            let year = document.querySelectorAll('input[name=year]');
+            for (let i = 0; i < year.length; i++)
+            {
+                if (year[i].checked)
+                {
+                    checked = true;
+                }
+            }
+            if (checked == false)
+            {
+                alert('You must provide your year!');
+                return false;
+            }
+            let zero = document.querySelectorAll('input[name=zero]');
+            checked = false;
+            for (let i = 0; i < zero.length; i++)
+            {
+                if (zero[i].checked)
+                {
+                    checked = true;
+                }
+            }
+            if (checked == false)
+            {
+                alert('You must check a box in each question!');
+                return false;
+            }
+            let one = document.querySelectorAll('input[name=one]');
+            checked = false;
+            for (let i = 0; i < one.length; i++)
+            {
+                if (one[i].checked)
+                {
+                    checked = true;
+                }
+            }
+            if (checked == false)
+            {
+                alert('You must check a box in each question!');
+                return false;
+            }
+            let two = document.querySelectorAll('input[name=two]');
+            checked = false;
+            for (let i = 0; i < two.length; i++)
+            {
+                if (two[i].checked)
+                {
+                    checked = true;
+                }
+            }
+            if (checked == false)
+            {
+                alert('You must check a box in each question!');
+                return false;
+            }
+            let three = document.querySelectorAll('input[name=three]');
+            checked = false;
+            for (let i = 0; i < three.length; i++)
+            {
+                if (three[i].checked)
+                {
+                    checked = true;
+                }
+            }
+            if (checked == false)
+            {
+                alert('You must check a box in each question!');
+                return false;
+            }
+            let four = document.querySelectorAll('input[name=four]');
+            checked = false;
+            for (let i = 0; i < four.length; i++)
+            {
+                if (four[i].checked)
+                {
+                    checked = true;
+                }
+            }
+            if (checked == false)
+            {
+                alert('You must check a box in each question!');
+                return false;
+            }
+            let five = document.querySelectorAll('input[name=five]');
+            checked = false;
+            for (let i = 0; i < five.length; i++)
+            {
+                if (five[i].checked)
+                {
+                    checked = true;
+                }
+            }
+            if (checked == false)
+            {
+                alert('You must check a box in each question!');
+                return false;
+            }
+            let six = document.querySelectorAll('input[name=six]');
+            checked = false;
+            for (let i = 0; i < six.length; i++)
+            {
+                if (six[i].checked)
+                {
+                    checked = true;
+                }
+            }
+            if (checked == false)
+            {
+                alert('You must check a box in each question!');
+                return false;
+            }
+            let seven = document.querySelectorAll('input[name=seven]');
+            checked = false;
+            for (let i = 0; i < seven.length; i++)
+            {
+                if (seven[i].checked)
+                {
+                    checked = true;
+                }
+            }
+            if (checked == false)
+            {
+                alert('You must check a box in each question!');
+                return false;
+            }
+            let eight = document.querySelectorAll('input[name=eight]');
+            checked = false;
+            for (let i = 0; i < eight.length; i++)
+            {
+                if (eight[i].checked)
+                {
+                    checked = true;
+                }
+            }
+            if (checked == false)
+            {
+                alert('You must check a box in each question!');
+                return false;
+            }
+        };
+
+    </script>
+
+{% endblock %}

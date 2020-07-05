@@ -1,0 +1,128 @@
+nav .navbar-brand
+{
+    /* size for brand */
+    font-size: x-large;
+}
+
+/* colors for brand */
+nav .navbar-brand .red
+{
+    color: #5c6d3d;
+}
+
+main .form-control
+{
+    /* center form controls */
+    display: inline-block;
+
+    /* override Bootstrap's 100% width for form controls */
+    width: auto;
+}
+
+main
+{
+    /* scroll horizontally as needed */
+    overflow-x: auto;
+
+    /* align contents */
+    text-align: justify;
+
+    line-height: 2;
+}
+
+main img
+{
+    /* constrain images on small screens */
+    max-width: 100%;
+
+}
+
+body
+{
+    background color: #cbdbb1;
+}
+
+
+input[type=text] {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: solid 2px #dfefda;
+    border-radius: 4px;
+}
+
+input[type=password] {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: solid 2px #dfefda;
+    border-radius: 4px;
+}
+
+input[type=number] {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: solid 2px #dfefda;
+    border-radius: 4px;
+}
+
+input[type=email] {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: solid 2px #dfefda;
+    border-radius: 4px;
+}
+
+select {
+    width: 30%;
+    height: 40px;
+    padding: 16px 20px;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+}
+
+#intro {
+    padding: 30px;
+    margin: 114px;
+    text-align: center;
+    color: #5c6d3d;
+}
+#reg
+    input[type=text] {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: solid 2px #dfefda;
+    border-radius: 4px;
+}
+
+#meza{
+        width: 30%;
+}
+#growth{
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+}
+#values{
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+}
